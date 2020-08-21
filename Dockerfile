@@ -60,7 +60,7 @@ RUN chown root:root /run.sh && \
     chmod 555 /run.sh
 
 # Ports and Volumes
-EXPOSE 80 8080 9091 51413 51413/udp
+EXPOSE 8080
 VOLUME /root/data /download
 
 # Run

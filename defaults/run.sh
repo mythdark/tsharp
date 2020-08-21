@@ -17,13 +17,17 @@ if [ ! -d /home/banya/ ]; then
 
   mkdir -p /home/banya
   chown banya:zavi -R /home/banya /root/data
-  chmod 755 -R /home/banya /root/data
+  chmod 0755 -R /home/banya /root/data
 fi
 if [ ! -f /root/data/settings.json ]; then
   cp /defaults/settings.json /root/data/settings.json
 fi
 if [ ! -f /root/data/h2.mv.db ]; then
   cp /defaults/h2.mv.db /root/data/h2.mv.db
+fi
+if [ -f /www/torr/UserConfig.php ]; then
+  chown www:www /www/torr/UserConfig.php
+  chmod 0777 /www/torr/UserConfig.php
 fi
 
 # Run Transmission & Nginx (PHP7)

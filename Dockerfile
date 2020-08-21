@@ -57,7 +57,7 @@ COPY ./defaults/run.sh /run.sh
 
 # Initial script
 RUN chown root:root /run.sh && \
-    chmod 555 /run.sh
+    chmod 0555 /run.sh
 
 # Ports and Volumes
 EXPOSE 8080

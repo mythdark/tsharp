@@ -16,7 +16,7 @@ if [ ! -d /home/banya/ ]; then
   echo "banya:!::0:::::" >> /etc/shadow
 
   mkdir -p /home/banya
-  chown banya:zavi -R /home/banya /root /torrssen2.jar
+  chown banya:zavi -R /home/banya /root
   chmod 0755 -R /home/banya /root
 fi
 if [ ! -f /root/data/settings.json ]; then
@@ -38,4 +38,4 @@ su - banya -c "/usr/bin/transmission-daemon -g /root/data"
 /usr/sbin/nginx
 
 # Bootstrap torr
-su - banya -c "/opt/java/openjdk/bin/java -Xshareclasses -Xquickstart -jar /torrssen2.jar"
+/opt/java/openjdk/bin/java -Xshareclasses -Xquickstart -jar /torrssen2.jar

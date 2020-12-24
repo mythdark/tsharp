@@ -1,6 +1,6 @@
 # Introduction
 
-**T#**<sup>T Sharp</sup>은 **It's torr!** 과 **torrssen2**, **Transmission**이 통합 설치되어 기본 연동이 설정된 도커 이미지입니다.
+**T#**<sup>T Sharp</sup>은 **It's torr!**와 **torrssen2**, **Transmission**이 통합 설치되어 기본 연동이 설정된 도커 이미지입니다.
 
 # Related Apps
 
@@ -36,8 +36,8 @@ docker run -d \
 
 | Parameter | Function |
 |-----------|----------|
-| -e PUID | Transmission 실행 유저 ID |
-| -e PGID | Transmission 실행 그룹 ID |
+| -e PUID | 실행 유저 ID |
+| -e PGID | 실행 그룹 ID |
 | -p 80 | It's torr! RSS 접속 포트 |
 | -p 9091 | Transmission RPC 접속 포트 |
 | -v /www/torr/UserConfig.php | It's torr! 사용자 정의 설정 |
@@ -45,7 +45,7 @@ docker run -d \
 
 ### PUID / PGID
 
-파일은 트랜스미션 실행 유저:그룹 소유로 생성됩니다.  
+파일은 실행 유저:그룹 소유로 생성됩니다.  
 특정 소유로 파일을 내려받아야 한다면 이 환경변수를 변경하세요. (기본값: 0(root):100(users))
 
 ### Port 80
@@ -76,7 +76,7 @@ docker run -d \
 
 - torrssen2: **환경 설정 > 로그인**에서 설정할 수 있습니다.
 - Transmission: **/root/data/settings.json** 파일의 아래 옵션을 수정합니다.  
-  **username**와 **password**을 **torrssen2 > 환경 설정 > 트랜스미션**와 같이 수정해야 합니다.
+  **username**와 **password**을 **torrssen2 > 환경 설정 > 트랜스미션**과 같이 수정해야 합니다.
 
 ```
     "rpc-password": "your_password",

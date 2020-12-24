@@ -16,14 +16,16 @@ if [ ! -d /home/banya/ ]; then
   echo "banya:!::0:::::" >> /etc/shadow
 
   mkdir -p /home/banya
-  chown banya:zavi -R /home/banya /root/data
-  chmod 0755 -R /home/banya /root/data
+  chown banya:zavi -R /home/banya /root /torrssen2.jar
+  chmod 0755 -R /home/banya /root
 fi
 if [ ! -f /root/data/settings.json ]; then
   cp /defaults/settings.json /root/data/settings.json
+  chown banya:zavi /root/data/settings.json
 fi
 if [ ! -f /root/data/h2.mv.db ]; then
   cp /defaults/h2.mv.db /root/data/h2.mv.db
+  chown banya:zavi /root/data/h2.mv.db
 fi
 if [ -f /www/torr/UserConfig.php ]; then
   chown www:www /www/torr/UserConfig.php
@@ -31,22 +33,9 @@ if [ -f /www/torr/UserConfig.php ]; then
 fi
 
 # Run Transmission & Nginx (PHP7)
-su - banya -c "transmission-daemon -g /root/data"
-php-fpm7
-nginx
+su - banya -c "/usr/bin/transmission-daemon -g /root/data"
+/usr/sbin/php-fpm7
+/usr/sbin/nginx
 
 # Bootstrap torr
-if [ ! -f /root/torr.php ]; then
-  wget -P /root/ http://localhost/torr/torr.php
-fi
-
-# Run torrssen2
-while true
-do
-  cd /torrssen2 && git pull && cd /
-
-  cp /torrssen2/docker/torrssen2-*.jar torrssen2.jar
-
-  #java -jar torrssen2.jar
-  java $JAVA_OPTS -Xshareclasses -Xquickstart -jar torrssen2.jar
-done
+su - banya -c "/opt/java/openjdk/bin/java -Xshareclasses -Xquickstart -jar /torrssen2.jar"

@@ -52,6 +52,7 @@ RUN sed -i "s|;listen.owner\s*=\s*nobody|listen.owner = ${PHP_FPM_USER}|g" /etc/
 COPY ./defaults/settings.json /defaults/settings.json
 COPY ./defaults/nginx.conf /etc/nginx/nginx.conf
 COPY --chown=www:www ./defaults/torr.php /www/torr/torr.php
+COPY --chown=www:www ./defaults/UserConfig.php /www/torr/UserConfig.php
 COPY ./defaults/h2.mv.db /defaults/h2.mv.db
 COPY ./defaults/run.sh /run.sh
 

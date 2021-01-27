@@ -79,8 +79,9 @@ docker run -d \
   **username**와 **password**을 **torrssen2 > 환경 설정 > 트랜스미션**과 같이 수정해야 합니다.
 
 ```
-    "rpc-password": "your_password",
+    "rpc-authentication-required": true,
     "rpc-username": "your_username",
+    "rpc-password": "your_password",
 ```
 
 # Notice

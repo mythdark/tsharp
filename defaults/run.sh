@@ -37,5 +37,10 @@ su - banya -c "/usr/bin/transmission-daemon -g /root/data"
 /usr/sbin/php-fpm7
 /usr/sbin/nginx
 
+# Delete update cache & Refresh
+rm /tmp/torr.updatecheck
+rm /tmp/torr-userconfig.updatecheck
+wget -q --spider http://localhost/torr/torr.php
+
 # Bootstrap torr
 /opt/java/openjdk/bin/java -Xshareclasses -Xquickstart -jar /torrssen2.jar
